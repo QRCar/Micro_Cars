@@ -16,7 +16,7 @@ config :qrcar_micro_enterprise_identification, QrcarMicroEnterpriseIdentificatio
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
 config :qrcar_micro_enterprise_identification, QrcarMicroEnterpriseIdentificationWeb.Endpoint,
-  http: [port: 4000],
+  http: [port: 4004],
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
