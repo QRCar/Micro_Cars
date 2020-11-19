@@ -101,4 +101,23 @@ defmodule QrcarMicroCarIdentification.Vehicle do
   def change_cars(%Cars{} = cars, attrs \\ %{}) do
     Cars.changeset(cars, attrs)
   end
+
+  @doc """
+  Gets a multiple cars by user id.
+
+  Raises `Ecto.NoResultsError` if the Cars does not exist.
+
+  ## Examples
+
+      iex> get_cars!(123)
+      %Cars{}
+
+      iex> get_cars!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_cars_by_user_id!(user_id) do
+    query = from cars in Cars, where: cars.user_id == ^user_id
+    Repo.all(query)
+  end
 end

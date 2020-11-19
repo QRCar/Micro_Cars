@@ -1,8 +1,10 @@
 defmodule QrcarMicroCarIdentificationWeb.CarsView do
   use QrcarMicroCarIdentificationWeb, :view
+  require Logger
   alias QrcarMicroCarIdentificationWeb.CarsView
 
   def render("index.json", %{cars: cars}) do
+    Logger.info("My cars: #{inspect(cars)}")
     %{data: render_many(cars, CarsView, "cars.json")}
   end
 

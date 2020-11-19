@@ -8,6 +8,7 @@ defmodule QrcarMicroCarIdentificationWeb.Router do
   scope "/api", QrcarMicroCarIdentificationWeb do
     pipe_through :api
     resources "/cars", CarsController
+    get "/cars/byiduser/:user_id", CarsController, :getCarsByIdUser
   end
 
   # Enables LiveDashboard only for development

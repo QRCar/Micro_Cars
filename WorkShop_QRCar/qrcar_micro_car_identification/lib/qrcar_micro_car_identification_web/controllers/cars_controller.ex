@@ -1,5 +1,6 @@
 defmodule QrcarMicroCarIdentificationWeb.CarsController do
   use QrcarMicroCarIdentificationWeb, :controller
+  require Logger
 
   alias QrcarMicroCarIdentification.Vehicle
   alias QrcarMicroCarIdentification.Vehicle.Cars
@@ -39,5 +40,10 @@ defmodule QrcarMicroCarIdentificationWeb.CarsController do
     with {:ok, %Cars{}} <- Vehicle.delete_cars(cars) do
       send_resp(conn, :no_content, "")
     end
+  end
+
+  def getCarsByIdUser(conn, %{"user_id" => user_id})do
+    cars = Vehicle.get_cars_by_user_id!(user_id)
+    render(conn, "index.json", cars: cars)
   end
 end
