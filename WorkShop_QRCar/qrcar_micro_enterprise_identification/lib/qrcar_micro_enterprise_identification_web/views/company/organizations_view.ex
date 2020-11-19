@@ -13,6 +13,7 @@ defmodule QrcarMicroEnterpriseIdentificationWeb.OrganizationsView do
   def render("organizations.json", %{organizations: organizations}) do
     %{id: organizations.id,
       name: organizations.name,
-      siren: organizations.siren}
+      siren: organizations.siren,
+      logo: organizations.logo}
   end
 end
